@@ -1,6 +1,7 @@
 <script>
 export default {
 	onLaunch: function() {
+		//获取屏幕状态栏高度
 		uni.getSystemInfo({
 			success: function(e) {
 				// #ifndef MP
