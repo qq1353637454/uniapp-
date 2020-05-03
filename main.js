@@ -9,6 +9,8 @@ Vue.component('cu-custom',cuCustom)
 import store from './store'
 Vue.prototype.$store = store;
 
+import './utils/filter'
+
 //全局提示
 Vue.prototype.$alert = function(msg){
 	if(!msg)return

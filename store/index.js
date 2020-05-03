@@ -1,5 +1,7 @@
+import Vue from 'vue'
 import Vuex from 'vuex'
-Vue.use(Vuex)
+
+Vue.set(Vuex)
 
 const store = new Vuex.Store({
 	state:{
@@ -7,8 +9,23 @@ const store = new Vuex.Store({
 		userInfo:{
 			userName:'刘先生'
 		}
-	},
+	}, 
 	mutations:{
+		login(state,provider){
+			state.IsLogin = true;
+			state.userInfo = provider;
+			uni.setStorage({
+				key:'userInfo',
+				data:provider
+			})
+		},
+		logout(state){
+			state.IsLogin = false;
+			state.userInfo = {};
+			uni.removeStorage({
+				key:'userInfo'
+			})
+		}
 		
 	}
 })
